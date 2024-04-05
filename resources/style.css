@@ -1,0 +1,196 @@
+.st-emotion-cache-1v0mbdj {
+    display: flex;
+    flex-direction: column;
+    
+
+    width: 110px;
+    height:180px;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+}
+p, span{
+    text-align: center;
+}
+/* Sidepanel */
+.css-6qob1r {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: overlay;
+    background-color: floralwhite;
+}
+.menu {
+    background-color: var(--secondary-background-color);
+    border-radius: .5rem;
+    border: 2px solid #ffa200 !important;
+    box-shadow: 4px 3px 4px 0 yellowgreen inset;
+}
+.menu .container-xxl {
+    background-color: var(--secondary-background-color);
+    border-radius: .5rem;
+    border: 2px solid #ffa200 !important;
+    box-shadow: 0px 0px 9px 0 yellowgreen inset;
+
+}
+
+
+.st-emotion-cache-mg5opj {
+    width: 130px;
+    position: relative;
+    display: flex;
+    /* flex: 1 1 0%; */
+    flex-direction: row;
+    gap: 1rem;
+}
+div[class = "cards"]{
+    width: 120px;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+div[class = "card"] > img{
+    width: 110px;
+    height:130px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+} 
+div[class = "cards"] > img > p{
+    
+    height:100%;
+    background-color: rgb(231, 178, 109);
+    
+} 
+/* container */
+.st-emotion-cache-r421ms {
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    border-radius: 0.5rem;
+    padding: calc(2em - 1px);
+    width: 900px;
+    box-shadow: inset 0px 0px 11px 1px #ccd4db;
+}
+
+/* .css-ocqkz7 {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    gap: 1rem;
+    flex-direction: row;
+    border: 1px solid red;
+    width: 100%;
+} */
+
+/* Container for the images */
+.css-ocqkz7 {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    row-gap: 5rem;
+    justify-content: space-between;
+    box-shadow: inset 0px 0px 11px 1px #ccd4db;
+    border: 1px solid rgba(49, 51, 63, 0.2);
+    border-radius: 0.5rem;
+}
+/* Movie Images */
+.css-1kyxreq etr89bj2{
+
+}
+/* Captions Font */
+css-1b0udgb {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 14px;
+    color: #0b7142;
+    text-align: center;
+    margin-top: 0.375rem;
+    overflow-wrap: break-word;
+    padding: 0.125rem;
+}
+
+/* Movie Image Section */
+.css-ytkq5y e1tzin5v2{
+    display: flex;
+    flex-flow: wrap;
+    row-gap: 2rem;
+    justify-content: center;
+    border: 1px solid blue;
+    width: 33%;
+}
+.css-ytkq5y {
+    width: 160px;
+    box-shadow: 0px 5px 6px 0px slategray;
+    border-radius: 2px;
+    border: 1px solid #def6da;
+    background-color: #fff9f9;
+    
+    /* flex: 1 1 calc(10% - 1rem); */
+}
+.css-ytkq5y:hover{
+    /* box-shadow: rgba(101, 101, 186, 0.1) 0px 0px 16px; */
+    background-color: #fff9f9;
+    box-shadow: 0px 5px 6px 0px slategray;
+    
+    transform: translateY(-10px) scale(1.1) rotate(-5deg);
+    transition: all ease-out .5s;
+}
+.css-1kyxreq {
+    display: flex;
+    flex-flow: wrap;
+    row-gap: 1rem;
+    /* border: 1px solid; */
+    /* height: 180px; */
+    justify-content: center;
+}
+/* .st-emotion-cache-1kyxreq {
+    display: flex;
+    flex-flow: wrap;
+    row-gap: 2rem;
+    justify-content: center;
+} */
+/* .e1nzilvr5{
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} */
+/* .e1f1d6gn3{
+    border: 1px solid #def6da;
+    background-color: #fff9f9;
+    width: 33%;
+    box-shadow: 0px 5px 6px 0px slategray;
+    border-radius: 2px;
+} */
+.e1f1d6gn3:hover{
+    /* box-shadow: rgba(101, 101, 186, 0.1) 0px 0px 16px; */
+    background-color: #fff9f9;
+    box-shadow: 0px 5px 6px 0px slategray;
+    
+    transform: translateY(-10px) scale(1.1) rotate(-5deg);
+    transition: all ease-out .5s;
+}
+/* @keyframes identifier {
+    0%{
+    transform: translateY(0px) scale(1) rotate(0deg);
+    }
+    100%{
+        
+    transform: translateY(-10px) scale(1.1) rotate(-5deg);
+    }
+} */
+
+/* tabs */
+div[data-baseweb="tab-list"]{
+    justify-content: center;
+}
+.st-b3 {
+    display: flex;
+    justify-content: center;
+}
