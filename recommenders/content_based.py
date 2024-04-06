@@ -37,7 +37,14 @@ from sklearn.feature_extraction.text import CountVectorizer
 # Importing data
 movies = pd.read_csv('resources/data/movies.csv', sep = ',')
 ratings = pd.read_csv('resources/data/ratings.csv')
+media_df =  pd.read_csv('resources/data/links_with_media.csv')
+media_df
 movies.dropna(inplace=True)
+media_df.drop('Unnamed: 0', axis=1)
+newMovie_df = movies.merge(media_df[['images','link']], on=media_df['movieId'])
+
+
+print(newMovie_df, movies)
 
 def data_preprocessing(subset_size):
     """Prepare data for use within Content filtering algorithm.
@@ -108,5 +115,44 @@ def content_model(movie_list,top_n=10):
     # Removing chosen movies
     top_indexes = np.setdiff1d(top_50_indexes,[idx_1,idx_2,idx_3])
     for i in top_indexes[:top_n]:
-        recommended_movies.append(list(movies['title'])[i])
+        movieItem = {
+            'title': list(movies['title'])[i],
+            'image_url': get_movie_image_url(list(movies['title'])[i]),
+            # 'ratings' : get_movie_rating(list(movies_df['title'])[i])
+              #  Get image URL
+            # # 'external_link': get_external_link(newMovie_df.iloc[idx]['title'])  # Get external link
+        }
+        recommended_movies.append(movieItem)
+        print(movieItem)
+
+        
+        # print(get_movie_image_url(newMovie_df.iloc[i]['movieId']))
+        
+   
+
     return recommended_movies
+
+
+def get_movie_image_url(movie_title):
+    """Get the image URL of a movie based on its title.
+    
+    Parameters
+    ----------
+    movie_title : str
+        Title of the movie.
+    
+    Returns
+    -------
+    str
+        Image URL of the movie.
+    """
+    # Find the image URL for the given movie title
+    row = newMovie_df[newMovie_df['title'] == movie_title]
+    if not row.empty:
+        image_url = row['images'].values[0]
+    else:
+        # If image URL is not available, return a default image URL or handle the case accordingly
+        image_url = 'default_image_url.jpg'
+
+    print(image_url)
+    return image_url

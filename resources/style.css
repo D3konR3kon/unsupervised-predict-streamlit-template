@@ -89,23 +89,23 @@ div[class = "cards"] > img > p{
 /* Container for the images */
 .css-ocqkz7 {
     display: flex;
-    flex-wrap: wrap;
     -webkit-box-flex: 1;
     flex-grow: 1;
     -webkit-box-align: stretch;
-    align-items: stretch;
-    row-gap: 5rem;
-    justify-content: space-between;
+    gap: 3rem;
+    justify-content: space-evenly;
     box-shadow: inset 0px 0px 11px 1px #ccd4db;
-    border: 1px solid rgba(49, 51, 63, 0.2);
+    border: 2px solid rgba(49, 51, 63, 0.2);
     border-radius: 0.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
 }
 /* Movie Images */
 .css-1kyxreq etr89bj2{
 
 }
 /* Captions Font */
-css-1b0udgb {
+.css-1b0udgb {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 14px;
     color: #0b7142;
@@ -122,14 +122,15 @@ css-1b0udgb {
     row-gap: 2rem;
     justify-content: center;
     border: 1px solid blue;
-    width: 33%;
 }
-.css-ytkq5y {
-    width: 160px;
+ .css-ytkq5y{
+    /* width: 160px; */
     box-shadow: 0px 5px 6px 0px slategray;
     border-radius: 2px;
     border: 1px solid #def6da;
     background-color: #fff9f9;
+    width: calc(30% - 1rem);
+    flex:  none;
     
     /* flex: 1 1 calc(10% - 1rem); */
 }

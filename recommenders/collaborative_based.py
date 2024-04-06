@@ -197,7 +197,7 @@ def collab_model(movie_list,top_n=10):
             # # 'external_link': get_external_link(newMovie_df.iloc[idx]['title'])  # Get external link
         }
         recommended_movies.append(movieItem)
-        print(movieItem)
+        
 
         
         # print(get_movie_image_url(newMovie_df.iloc[i]['movieId']))

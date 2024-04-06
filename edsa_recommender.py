@@ -126,7 +126,7 @@ Logistic regression has been rated as the best performing model for linearly sep
                         st.title("Some Movies You Might like:")
                         col1,col2,col3,col4,col5,col6,col7,col8,col9,col10 = st.columns(10)
                         cols=[col1,col2,col3,col4,col5,col6,col7,col8,col9,col10]
-                        print(top_recommendations)
+                       
                         with st.container():
                             
 
@@ -169,7 +169,7 @@ Logistic regression has been rated as the best performing model for linearly sep
                         col1,col2,col3,col4,col5,col6,col7,col8,col9,col10 = st.columns(10)
                         cols=[col1,col2,col3,col4,col5,col6,col7,col8,col9,col10]
 
-                        
+                        print(top_recommendations)
                         with st.container():
                                 for i, entry in enumerate(top_recommendations):
                                     with cols[i]:
