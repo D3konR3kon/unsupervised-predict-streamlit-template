@@ -104,6 +104,14 @@ div[class = "cards"] > img > p{
 .css-1kyxreq etr89bj2{
 
 }
+.css-rdg7hr {
+    width: 169px;
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    gap: 0.1rem;
+}
 /* Captions Font */
 .css-1b0udgb {
     font-family: "Source Sans Pro", sans-serif;
@@ -131,6 +139,7 @@ div[class = "cards"] > img > p{
     background-color: #fff9f9;
     width: calc(30% - 1rem);
     flex:  none;
+    padding-bottom: 4px;
     
     /* flex: 1 1 calc(10% - 1rem); */
 }

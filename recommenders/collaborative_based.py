@@ -252,3 +252,4 @@ def get_movie_rating(movie_title):
             return ratings_for_movie.mean()
     print(f"Movie '{movie_title}' not found in the DataFrame.")
     return None
+
