@@ -26,7 +26,9 @@
 
 """
 # Streamlit dependencies
+from html import unescape
 import streamlit as st
+from streamlit_carousel import carousel
 
 # Data handling dependencies
 import pandas as pd
@@ -42,6 +44,7 @@ from recommenders.collaborative_based import collab_model
 from recommenders.content_based import content_model
 from streamlit_option_menu import option_menu
 from recommenders.discover_movie import get_ratings_and_info
+
 
 # Data Loading
 title_list = load_movie_titles('resources/data/movies.csv')
@@ -70,8 +73,8 @@ def main():
             st.info("**Ayo! Its Showtime 🍿**")
             page_selected = option_menu(
             menu_title = "Find Your Way",
-            options = ["Home","Our Recommender Systems","Discover More Movies","Insights","About Us","Contact Us"],
-            icons = ["house","gear", "film","binoculars","info-circle","telephone"],
+            options = ["Home","Our Recommender Systems","Discover More Movies","Insights","Solution Overview","About Us"],
+            icons = ["house","gear", "film","binoculars","diagram-3","info-circle"],
             menu_icon = "compass",
             styles={
                     "icon": {"font-size": "10px"},
@@ -84,19 +87,21 @@ def main():
             default_index = 0,
             #orientation = "horizontal",
         )
-#             st.markdown(
-#     """
-#     <div style='background-color:#d0d0d0; padding:10px; border-radius:5px;'>
-#         <h2 style='text-align:center;'>🎈 Interactive charts coming in v1.1.0!</h2>
-#     </div>
-#     """,
-#     unsafe_allow_html=True
-# )
+#            
     if page_selected == "Home":
-         
+                test_items = get_ratings_and_info()
                 st.write('# Movie Match')
-                st.write('### The Ultimate Movie Recommder')
+                st.write('### The Ultimate Movie Recommender')
                 st.image('resources/imgs/Image_header.png',use_column_width=True)
+                
+                st.markdown(
+    """
+    <div style='background-color:rgb(41 53 21); padding:10px;border-radius: 5px; border: 4px solid orangered;box-shadow: 2px 1px 0px 9px #fefefe inset;'>
+        <h2 style='text-align:center; color: #fff'> Get started by visit the recommenders page </h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     if page_selected == "Our Recommender Systems":
             st.info("Choose A Recommender")
@@ -116,10 +121,8 @@ def main():
                     # User-based preferences
                 with st.container():
                      st.write("""
-                    Logistic Regression uses the probability of a data point to belonging to a certain class to classify each datapoint to it's best estimated class
-
-Logistic regression has been rated as the best performing model for linearly separable data especially if it's predicting binary data(Yes & NO or 1 & 0), and performs better when there's no class imbalance. 
-""")
+                              We use our collaborative filtering is a technique that can filter out items that a user might like on the basis of reactions by similar users. It works by searching a large group of people and finding a smaller set of users with tastes similar to a particular user.
+                    """)
                 st.write('### Enter Your Three Favorite Movies')
                 movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200])
                 movie_2 = st.selectbox('Second Option',title_list[25055:25255])
@@ -158,7 +161,9 @@ Logistic regression has been rated as the best performing model for linearly sep
                                 We'll need to fix it!")
                         
             with tab2:
-                 
+                with st.container():
+                    st.write("Content-based filtering acts like a personal stylist for your taste. It analyzes the features of items you've enjoyed (think genres in movies or categories in music) and uses that knowledge to suggest similar items you might love.")
+
                  # User-based preferences
                 st.write('### Enter Your Three Favorite Movies')
                 movie_1 = st.selectbox('Fisrt Option',title_list[14930:15200],key=1)
@@ -251,8 +256,10 @@ Logistic regression has been rated as the best performing model for linearly sep
 
     # ------------- SAFE FOR ALTERING/EXTENSION -------------------
     if page_selected == "Solution Overview":
-        st.title("Solution Overview")
-        st.write("Describe your winning approach on this page")
+        winning = "<h1 style='font-weight: bolder'>WHY US</h1><h3 style='color: #ff3b00'>Double the Power, Double the Wins:</h3>"
+        # st.title("Solution Overview")
+        st.write(unescape(winning), unsafe_allow_html=True)
+        st.write("Our hybrid recommendation system combines the strengths of collaborative and content-based filtering to deliver personalized, accurate, and diverse recommendations. By enhancing user experience and engagement, we drive business growth and customer satisfaction in a competitive landscape.")
     
     if page_selected == "Discover More Movies":
 
@@ -286,11 +293,11 @@ Logistic regression has been rated as the best performing model for linearly sep
                     }
             </style>
                     """, unsafe_allow_html=True)
-        st.button("Hello", key=99)
+        # st.button("Hello", key=99)
 
         top_50 = get_ratings_and_info()
 
-        st.title("See more title like:")
+        st.title("Classic titles you might like:")
         col1,col2,col3,col4,col5,col6,col7,col8,col9,col10 = st.columns(10)
         cols=[col1,col2,col3,col4,col5,col6,col7,col8,col9,col10]
 
@@ -404,7 +411,19 @@ Logistic regression has been rated as the best performing model for linearly sep
                 top_10_genres.head()
                 st.bar_chart(top_10_genres.set_index('Genres'), height=500)
 
-           
+    if page_selected == "About Us":
+            aboutUs = """
+                <h4>MovieMatch 🍿</h4>
+                <p class="ts" >© 2024 MovieMatch | Screen-sage Innovations LLC</p>
+                <hr>
+                <h4>📍 High Office</h4>
+                <p>1171 Southwest Midway Forrest</p>
+                <p>Goat Land, TX-7890</p>
+                <p>📞 011-021-2242</p>
+                <p>📧 info@tweetscope.io</p>
+"""
+            st.write(unescape(aboutUs), unsafe_allow_html=True)
+
             
     # You may want to add more sections here for aspects such as an EDA,
     # or to provide your business pitch.

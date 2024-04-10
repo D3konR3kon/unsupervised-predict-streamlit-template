@@ -37,6 +37,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 # Importing data
 movies = pd.read_csv('resources/data/movies.csv', sep = ',')
 ratings = pd.read_csv('resources/data/ratings.csv')
+
+
+
 media_df =  pd.read_csv('resources/data/links_with_media.csv')
 media_df
 movies.dropna(inplace=True)
@@ -44,7 +47,10 @@ media_df.drop('Unnamed: 0', axis=1)
 newMovie_df = movies.merge(media_df[['images','link']], on=media_df['movieId'])
 
 
-print(newMovie_df, movies)
+print(movies.shape)
+print(newMovie_df.shape)
+
+
 
 def data_preprocessing(subset_size):
     """Prepare data for use within Content filtering algorithm.
@@ -93,6 +99,9 @@ def content_model(movie_list,top_n=10):
     count_matrix = count_vec.fit_transform(data['keyWords'])
     indices = pd.Series(data['title'])
     cosine_sim = cosine_similarity(count_matrix, count_matrix)
+
+    print(cosine_sim.shape)
+
     # Getting the index of the movie that matches the title
     idx_1 = indices[indices == movie_list[0]].index[0]
     idx_2 = indices[indices == movie_list[1]].index[0]
@@ -108,10 +117,15 @@ def content_model(movie_list,top_n=10):
     # Getting the indexes of the 10 most similar movies
     listings = score_series_1.append(score_series_1).append(score_series_3).sort_values(ascending = False)
 
+    
+
     # Store movie names
     recommended_movies = []
     # Appending the names of movies
     top_50_indexes = list(listings.iloc[1:50].index)
+    print("Top 50", top_50_indexes)
+    
+   
     # Removing chosen movies
     top_indexes = np.setdiff1d(top_50_indexes,[idx_1,idx_2,idx_3])
     for i in top_indexes[:top_n]:
@@ -123,7 +137,7 @@ def content_model(movie_list,top_n=10):
             # # 'external_link': get_external_link(newMovie_df.iloc[idx]['title'])  # Get external link
         }
         recommended_movies.append(movieItem)
-        print(movieItem)
+     
 
         
         # print(get_movie_image_url(newMovie_df.iloc[i]['movieId']))
@@ -154,5 +168,5 @@ def get_movie_image_url(movie_title):
         # If image URL is not available, return a default image URL or handle the case accordingly
         image_url = 'default_image_url.jpg'
 
-    print(image_url)
+   
     return image_url

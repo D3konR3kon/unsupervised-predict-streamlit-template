@@ -11,6 +11,12 @@
 p, span{
     text-align: center;
 }
+/* Ayo section */
+.css-1w6rlcb {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
 /* Sidepanel */
 .css-6qob1r {
     position: relative;
