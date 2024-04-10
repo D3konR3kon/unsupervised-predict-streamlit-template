@@ -28,7 +28,7 @@
 # Streamlit dependencies
 from html import unescape
 import streamlit as st
-from streamlit_carousel import carousel
+
 
 # Data handling dependencies
 import pandas as pd
