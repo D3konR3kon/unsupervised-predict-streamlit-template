@@ -47,9 +47,6 @@ media_df.drop('Unnamed: 0', axis=1)
 newMovie_df = movies.merge(media_df[['images','link']], on=media_df['movieId'])
 
 
-print(movies.shape)
-print(newMovie_df.shape)
-
 
 
 def data_preprocessing(subset_size):

@@ -97,7 +97,7 @@ def main():
                 st.markdown(
     """
     <div style='background-color:rgb(41 53 21); padding:10px;border-radius: 5px; border: 4px solid orangered;box-shadow: 2px 1px 0px 9px #fefefe inset;'>
-        <h2 style='text-align:center; color: #fff'> Get started by visit the recommenders page </h2>
+        <h2 style='text-align:center; color: #fff'> To get started visit the recommenders page </h2>
     </div>
     """,
     unsafe_allow_html=True
@@ -364,8 +364,7 @@ def main():
 
 # Plot the top popular genres
 
-        if st.checkbox('Show raw data'):
-            st.write(movies)
+        
         
         # if st.checkbox("See top genres"):
         #     st.title("Top Popular Genres")
@@ -380,16 +379,21 @@ def main():
             
             st.title("Top 10 Movies")
 
-            if st.checkbox('See table'):
-                    st.write(highly_rated)
             
-            if st.checkbox('Bar graph'):
-                top_chart = alt.Chart(top_10_movies[['title', 'rating_count']]).mark_bar().encode(
-                    x='title',
-                    y=alt.Y('rating_count', sort='-x'),
-                    color=alt.Color('rating_count', scale=alt.Scale(scheme='viridis'))
-                ).properties(width=600, height=400)
-                st.altair_chart(top_chart, use_container_width=True)
+            st.write(highly_rated)
+            
+            
+            top_chart = alt.Chart(top_10_movies[['title', 'rating_count']]).mark_bar().encode(
+                x='title',
+                y=alt.Y('rating_count', sort='-x'),
+                color=alt.Color('rating_count', scale=alt.Scale(scheme='viridis'))
+            ).properties(width=600, height=400)
+
+            st.markdown("##")
+            st.markdown("##")
+           
+            
+            st.altair_chart(top_chart, use_container_width=True)
             
            
                 
@@ -398,29 +402,30 @@ def main():
             
             with st.container():
                 st.title("Worst 10 Movies")
-                if st.checkbox('Show table'):
-                    st.write(worst_10_movies[['title', 'rating_count']])
+                
+                st.write(worst_10_movies[['title', 'rating_count']])
             
         with tab3:
             st.subheader("Genres Release for the Past Decade ")
 
-            if st.checkbox('Show Table'):
-                st.write(recent_movies_df[['title','genres', 'release_year']])
+            
+            st.write(recent_movies_df[['title','genres', 'release_year']])
 
-            if st.checkbox('Show Graph'):
-                top_10_genres.head()
-                st.bar_chart(top_10_genres.set_index('Genres'), height=500)
+            st.markdown("##")
+            st.markdown("##")
+                
+            st.bar_chart(top_10_genres.set_index('Genres'), height=500)
 
     if page_selected == "About Us":
             aboutUs = """
                 <h4>MovieMatch 🍿</h4>
                 <p class="ts" >© 2024 MovieMatch | Screen-sage Innovations LLC</p>
                 <hr>
-                <h4>📍 High Office</h4>
+                <h4>📍High Office</h4>
                 <p>1171 Southwest Midway Forrest</p>
-                <p>Goat Land, TX-7890</p>
+                <p> Marry Land, TX-7890</p>
                 <p>📞 011-021-2242</p>
-                <p>📧 info@tweetscope.io</p>
+                <p>📧 info@sreensageinnovations.io</p>
 """
             st.write(unescape(aboutUs), unsafe_allow_html=True)
 
